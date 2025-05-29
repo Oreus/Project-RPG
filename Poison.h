@@ -14,9 +14,16 @@ class Poison : public StatusEffect{
         : StatusEffect(), damagePerTurn() {}
         Poison(string name, int duration, int damagePerTurn);
 
-        void applyEffect();
-        void update();
-        bool isExpired();
+        void applyEffect(Character* target){
+            if (target != nullptr) {
+                target->takeDamage(damagePerTurn);
+            }
+        }
+        void update(){
+            duration--;
+        }
+        bool isExpired(){
+            return duration <= 0;
+        }
 };
-
 #endif
