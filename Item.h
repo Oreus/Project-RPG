@@ -15,13 +15,12 @@ class Item {
     Item(string name)
     : name(name) {}
 
-    virtual ~Item() {}
-
     string getName() {
         return name;
     }
 
-    void use(Character* target);
+    virtual void use(Character* target){
+    }
 };
 
 #endif
