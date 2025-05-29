@@ -54,5 +54,4 @@ class Character{
         void applyStatusEffects(StatusEffect* effect);
         void processStatusEffects();
 };
-
 #endif
