@@ -5,6 +5,8 @@
 
 using namespace std;
 
+class Character;
+
 class StatusEffect{
     protected:
         string name;
@@ -13,11 +15,11 @@ class StatusEffect{
     public:
         StatusEffect()
         : name(), duration() {}
-        StatusEffect()
+        StatusEffect(string name, int duration)
         : name(name), duration(duration) {}
 
-        string getName() const;
-        int getDuration() const;
+        string getName();
+        int getDuration();
         void setDuration(int d);
 
         virtual void applyEffect(Character* target);
@@ -30,5 +32,4 @@ class StatusEffect{
             return duration <= 0;
         }
 };
-
 #endif
