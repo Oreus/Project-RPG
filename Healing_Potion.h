@@ -13,9 +13,15 @@ class HealingPotion : public Item {
     public:
         HealingPotion() 
         : Item(), healingAmount() {}
-        HealingPotion(string name, int healingAmount);
-
-        void use(Character* target);
+        HealingPotion(string name, int healingAmount)
+        : Item(name), healingAmount(healingAmount) {}
+        
+        void use(Character* target) {
+            if (target != nullptr) {
+        int newHealth = target->getHealth() + healingAmount;
+        target->setHealth(newHealth);
+        }
+    }
 };
 
 #endif
