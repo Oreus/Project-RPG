@@ -15,7 +15,11 @@ class Bomb : public Item {
         : Item(), damageAmount() {}
         Bomb(string name, int damageAmount);
 
-    void use(Character* target);
+    void use(Character* target) {
+        if (target != nullptr) {
+        target->takeDamage(damageAmount);
+        }
+    }
 };
 
 #endif
