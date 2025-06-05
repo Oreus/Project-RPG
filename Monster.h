@@ -1,4 +1,4 @@
-#ifndef MONSTER_H
+#i#ifndef MONSTER_H
 #define MONSTER_H
 #include "Character.h"
 
@@ -10,12 +10,14 @@ class Monster : public Character{
     public:
         Monster()
         : Character(), dropCoins(), difficultyFactor() {}
-        Monster(string name, int level, int health, int MH, int attack, int defense, int speed, int dropCoins, float difficultyFactor);
-
+        Monster(string name, int level, int health, int MH, int attack, int defense, int speed, int dropCoins, float difficultyFactor)
+        : Character(name, level, health, MH, attack, defense, speed), dropCoins(dropCoins), difficultyFactor(difficultyFactor) {}
         int getDropCoins(){
             return dropCoins;
         }
-        int getTurnsAgainstPlayer();
+        int getTurnsAgainstPlayer() {
+            return static_cast<int>(difficultyFactor);
+        }
 };
 
 #endif
