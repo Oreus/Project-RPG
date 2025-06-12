@@ -17,6 +17,8 @@
 using namespace std;
 
 int main() {
+    // Previous code for showing proper class functions:
+
     ///Monster Dragon("Dragon", 13, 30, 28, 38, 13, 25, 13, 5.2);
     ///cout << "Monster created!" << endl;
     ///cout << "Name: " << Dragon.getName() << endl;
@@ -36,6 +38,7 @@ int main() {
     ///cout << "After using bomb: " << enemy->getHealth() << endl;
     ///return 0;
 
+    // Main game
     Game game;
     game.start();
     return 0;
