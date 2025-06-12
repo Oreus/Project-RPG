@@ -6,8 +6,11 @@
 
 using namespace std;
 
+// Declaration of class Weapon
+// Handles the attrubutes and uses of weapons
 class Weapon {
     private:
+        // Weapon attributes
         string name;
         int minDamage;
         int maxDamage;
@@ -16,9 +19,16 @@ class Weapon {
         StatusEffect* statusEffect;
 
     public:
-        Weapon() : name(""), minDamage(0), maxDamage(0), durability(0), maxDurability(0), statusEffect(nullptr) {};
-        Weapon(string nombre, int min, int max, int dur, int maxDur, StatusEffect* SE) {}
+        // Constructors
+        Weapon() : name(""), minDamage(0), maxDamage(0), durability(0), 
+        maxDurability(0), statusEffect(nullptr) {};
+        Weapon(string nombre, int min, int max, 
+        int dur, int maxDur, StatusEffect* SE) : 
+        name(nombre), minDamage(min), maxDamage(max), 
+        durability(dur), maxDurability(maxDur), statusEffect(SE)
+{}
         
+        // Getters
         string getName(){
             return name;
         }
@@ -37,9 +47,12 @@ class Weapon {
         int getMaxDurability(){
             return maxDurability;
         }
+        // Gets from the status Effect class what the status effect
+        // on the weapon does
         StatusEffect* getStatusEffect() {
             return statusEffect;
         }
+        // Setters
         void setDurability(int dur) {
             durability = dur;
         }
@@ -58,16 +71,21 @@ class Weapon {
         void setMaxDurability(int maxDur) {
             maxDurability = maxDur;
         }
+        // Applys status effects
         void applyStatusEffect(Character* target){
+            // Looks to see if there IS (!= nullptr, meaning not null) 
+            // a status effect
             if (statusEffect != nullptr){
                 (*statusEffect).applyEffect(target);
             }
         }
+        // Reduces durability when used
         void reduceDurability() {
             if (durability > 0) {
                 durability = durability - 1;
             }
         }
+        // Checks if the weapon is broken
         bool isBroken() {
             return durability <= 0;
         }
